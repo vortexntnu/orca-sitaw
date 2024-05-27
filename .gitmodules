@@ -1,0 +1,12 @@
+[submodule "packages/vortex-image-filtering"]
+	path = packages/vortex-image-filtering
+	url = https://github.com/vortexntnu/vortex-image-filtering.git
+[submodule "packages/vortex-aruco-detection"]
+	path = packages/vortex-aruco-detection
+	url = https://github.com/vortexntnu/vortex-aruco-detection.git
+[submodule "packages/vortex-blackfly-driver"]
+	path = packages/vortex-blackfly-driver
+	url = https://github.com/vortexntnu/vortex-blackfly-driver.git
+[submodule "packages/vortex-vkf"]
+	path = packages/vortex-vkf
+	url = https://github.com/vortexntnu/vortex-vkf.git
