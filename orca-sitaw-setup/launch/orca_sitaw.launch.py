@@ -99,7 +99,7 @@ def generate_launch_description():
             ComposableNode(
                 package='image_filtering',
                 plugin='vortex::image_processing::ImageFilteringNode',
-                name='image_filtering_node',
+                name='image_filtering',
                 parameters=[filtering_params_file],
                 extra_arguments=[{'use_intra_process_comms': True}],
                 condition=IfCondition(enable_filtering)
@@ -107,7 +107,7 @@ def generate_launch_description():
             ComposableNode(
                 package='aruco_detector',
                 plugin='vortex::aruco_detector::ArucoDetectorNode',
-                name='aruco_detector_node',
+                name='aruco_detector',
                 parameters=[aruco_params_file],
                 extra_arguments=[{'use_intra_process_comms': True}],
                 condition=IfCondition(enable_aruco)
@@ -115,10 +115,10 @@ def generate_launch_description():
             ComposableNode(
             package='spinnaker_camera_driver',
             plugin='spinnaker_camera_driver::CameraDriver',
-            name='gripper_camera_node',
+            name='gripper_camera',
             parameters=[gripper_params_file,
                         {'parameter_file': blackfly_s_config_file,
-                        'serial_number': "23494259",
+                        'serial_number': "23494258",
                         'camerainfo_url': gripper_camera_calib_url}],
             remappings=[('~/control', '/exposure_control/control'),
                         ('/flir_camera/image_raw', '/gripper_camera/image_raw'),
@@ -129,10 +129,10 @@ def generate_launch_description():
             ComposableNode(
             package='spinnaker_camera_driver',
             plugin='spinnaker_camera_driver::CameraDriver',
-            name='front_camera_node',
+            name='front_camera',
             parameters=[front_camera_params_file,
                         {'parameter_file': blackfly_s_config_file,
-                        'serial_number': "23494258",
+                        'serial_number': "23494259",
                         'camerainfo_url': front_camera_calib_url}],
             remappings=[('~/control', '/exposure_control/control'),
                         ('/flir_camera/image_raw', '/front_camera/image_raw'),
@@ -149,7 +149,7 @@ def generate_launch_description():
     filtering_node = Node(
         package='image_filtering',
         executable='image_filtering_node',
-        name='image_filtering_node',
+        name='image_filtering',
         parameters=[filtering_params_file],
         output='screen',
         condition=IfCondition(enable_filtering)
@@ -158,7 +158,7 @@ def generate_launch_description():
     aruco_node = Node(
         package='aruco_detector',
         executable='aruco_detector_node',
-        name='aruco_detector_node',
+        name='aruco_detector',
         parameters=[aruco_params_file],
         output='screen',
         condition=IfCondition(enable_aruco)
@@ -167,10 +167,10 @@ def generate_launch_description():
     gripper_camera_node = Node(
         package='spinnaker_camera_driver',
         executable='camera_driver_node',
-        name='gripper_camera_node',
+        name='gripper_camera',
         parameters=[gripper_params_file,
                         {'parameter_file': blackfly_s_config_file,
-                        'serial_number': "23494259",
+                        'serial_number': "23494258",
                         'camerainfo_url': gripper_camera_calib_url}],
             remappings=[('~/control', '/exposure_control/control'),
                         ('/flir_camera/image_raw', '/gripper_camera/image_raw'),
@@ -182,10 +182,10 @@ def generate_launch_description():
     front_camera_node = Node(
         package='spinnaker_camera_driver',
         executable='camera_driver_node',
-        name='front_camera_node',
+        name='front_camera',
         parameters=[front_camera_params_file,
                         {'parameter_file': blackfly_s_config_file,
-                        'serial_number': "23494258",
+                        'serial_number': "23494259",
                         'camerainfo_url': front_camera_calib_url}],
             remappings=[('~/control', '/exposure_control/control'),
                         ('/flir_camera/image_raw', '/front_camera/image_raw'),
