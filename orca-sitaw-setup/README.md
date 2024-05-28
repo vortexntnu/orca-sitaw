@@ -77,9 +77,7 @@ When launching as composable nodes in the same container if one node crashes it 
 
 ### Standalone Nodes
 
-When `enable_composable_nodes` is set to `False`, the enabled nodes will be launched as standalone nodes to allow for better fault isolation. The config files included in this repository will be passed down and override other arguments 
-
-the Image Filtering and ArUco Detection nodes are launched as separate nodes using the `IncludeLaunchDescription` action.
+When `enable_composable_nodes` is set to `False`, the enabled nodes will be launched as standalone nodes to allow for better fault isolation. The config files included in this repository will be still be used to create node instances directly in this launch file to provide a simplistic overview. This configuration also makes this launch file independent from the launch files in the other packages.
 
 ## Calibration Files
 
