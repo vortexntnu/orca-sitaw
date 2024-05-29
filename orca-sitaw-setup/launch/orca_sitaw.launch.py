@@ -82,8 +82,9 @@ def generate_launch_description():
 
     
     package_share_directory = get_package_share_directory('orca_sitaw_setup')
-    gripper_camera_calib_path = os.path.join(package_share_directory, 'config', 'gripper_camera_calib.yaml')
-    front_camera_calib_path = os.path.join(package_share_directory, 'config', 'front_camera_calib.yaml')
+    gripper_camera_calib_path = os.path.join(package_share_directory, 'config', 'gripper_camera_calib_downscale.yaml')
+    # gripper_camera_calib_path = os.path.join(package_share_directory, 'config', 'gripper_camera_calib.yaml')
+    front_camera_calib_path = os.path.join(package_share_directory, 'config', 'front_camera_calib_downscale.yaml')
     
     # Add 'file://' prefix to the path required by the CameraInfoManager that sets the camera calibration in the spinnaker driver
     gripper_camera_calib_url = f'file://{gripper_camera_calib_path}'
@@ -101,7 +102,7 @@ def generate_launch_description():
                 plugin='vortex::image_processing::ImageFilteringNode',
                 name='image_filtering',
                 parameters=[filtering_params_file],
-                extra_arguments=[{'use_intra_process_comms': True}],
+                extra_arguments=[{'use_intra_process_comms': False}],
                 condition=IfCondition(enable_filtering)
             ),
             ComposableNode(
@@ -123,7 +124,7 @@ def generate_launch_description():
             remappings=[('~/control', '/exposure_control/control'),
                         ('/flir_camera/image_raw', '/gripper_camera/image_raw'),
                         ('/flir_camera/camera_info', '/gripper_camera/camera_info')],
-            extra_arguments=[{'use_intra_process_comms': True}],
+            extra_arguments=[{'use_intra_process_comms': False}],
             condition=IfCondition(enable_gripper_camera)
             ),
             ComposableNode(
